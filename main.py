@@ -77,6 +77,7 @@ if __name__ == '__main__':
 
     elif algorithm == 2:
         # generateAESKey(secrets.token_hex(32))
+
         mode = setMode()
         start_time = time.time()
         if mode == 1:
