@@ -1,11 +1,9 @@
 # Ransomware Encryption Simulation
 
-
-This tool was written for speed comparison of encryption algorithms in file encryption.
-It is used for educational purposes and non-educational use is not recommended.
- 
-Please do not infect companies with ransomware :') thx
-
+> This tool was written for speed comparison of encryption algorithms in file encryption.
+> It is used for educational purposes and non-educational use is not recommended.
+>
+> Please do not infect companies with ransomware :') thx
 
 ## Usage
 
