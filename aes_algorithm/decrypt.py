@@ -4,7 +4,7 @@ from Crypto.Cipher import AES
 
 
 def decryptAES(cipher_files):
-    print(f'\n[+] Decrypting {len(cipher_files)} files')
+    print(f'\n[+] Decrypting {len(cipher_files)} files with AES-256')
     with open(f'{KEYS_DIR}/{AES_KEY}', mode='rb') as p:
         key = p.read().decode('utf-8')
 

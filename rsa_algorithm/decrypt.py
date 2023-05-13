@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 def decryptRSA(cipher_files):
-    print(f'\n[+] Decrypting {len(cipher_files)} files')
+    print(f'\n[+] Decrypting {len(cipher_files)} files with RSA-1024')
 
     private_key_path = f'{KEYS_DIR}/{RSA_PRIVATE_KEY}'
     private_key = ffe.read_private_key(private_key=Path(private_key_path))

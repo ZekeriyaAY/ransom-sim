@@ -5,7 +5,7 @@ from settings import ENC_EXT, KEYS_DIR, AES_KEY
 
 
 def encryptAES(files):
-    print(f'\n[+] Encrypting {len(files)} files')
+    print(f'\n[+] Encrypting {len(files)} files with AES-256')
     with open(f'{KEYS_DIR}/{AES_KEY}', mode='rb') as p:
         key = p.read().decode('utf-8')
 

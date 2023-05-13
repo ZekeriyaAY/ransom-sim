@@ -9,7 +9,6 @@ import time
 from aes_algorithm.encrypt import encryptAES
 from aes_algorithm.decrypt import decryptAES
 from aes_algorithm.manage_key import generateAESKey
-import secrets
 
 
 def getFiles(path):
@@ -34,10 +33,10 @@ def getFiles(path):
 
 def setAlgorithm():
     print("\n")
-    print("[?] Select Algorithm")
+    print("[?] Select Test Type")
     print("[1] RSA-1024")
     print("[2] AES-256")
-    print("[3] ECDSA-256")
+    print("[3] Benchmark Test")
     algorithm = int(input("Enter your choice: "))
 
     return algorithm
@@ -94,6 +93,50 @@ if __name__ == '__main__':
             print("Invalid Choice")
 
     elif algorithm == 3:
-        pass
+        start_time = time.time()
+        encryptRSA(normal_files)
+        rsa_encryption_time = time.time() - start_time
+        rsa_decription_start_time = time.time()
+        print(
+            f"\n[+] Time passed: {rsa_encryption_time} seconds in RSA Encryption/Benchmark mode")
+        (normal_files, encrypted_files) = getFiles(TARGET_DIR)
+        decryptRSA(encrypted_files)
+        rsa_decription_time = time.time() - rsa_decription_start_time
+        print(
+            f"\n[+] Time passed: {rsa_decription_time} seconds in RSA Decryption/Benchmark mode")
+        rsa_total_time = time.time() - start_time
+        print(
+            f"\n[+] Time passed: {rsa_total_time} seconds in RSA Total/Benchmark mode")
+
+        (normal_files, encrypted_files) = getFiles(TARGET_DIR)
+        start_time = time.time()
+        encryptAES(normal_files)
+        aes_encryption_time = time.time() - start_time
+        aes_encryption_start_time = time.time()
+        print(
+            f"\n[+] Time passed: {aes_encryption_time} seconds in AES Encryption/Benchmark mode")
+        (normal_files, encrypted_files) = getFiles(TARGET_DIR)
+        decryptAES(encrypted_files)
+        aes_decryption_time = time.time() - aes_encryption_start_time
+        print(
+            f"\n[+] Time passed: {aes_decryption_time} seconds in AES Decryption/Benchmark mode")
+        aes_total_time = time.time() - start_time
+        print(
+            f"\n[+] Time passed: {aes_total_time} seconds in AES Total/Benchmark mode")
+
+        print("\n===================")
+        print("= RSA Algorithm")
+        print("===================")
+        print(f"= Encryption Time: {rsa_encryption_time} seconds")
+        print(f"= Decryption Time: {rsa_decription_time} seconds")
+        print(f"= Total Time: {rsa_total_time} seconds")
+        print("===================")
+        print("= AES Algorithm")
+        print("===================")
+        print(f"= Encryption Time: {aes_encryption_time} seconds")
+        print(f"= Decryption Time: {aes_decryption_time} seconds")
+        print(f"= Total Time: {aes_total_time} seconds")
+        print("===================")
+
     else:
         print("Invalid Choice")

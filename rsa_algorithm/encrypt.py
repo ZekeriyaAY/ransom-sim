@@ -5,7 +5,7 @@ from pathlib import Path
 
 
 def encryptRSA(files):
-    print(f'\n[+] Encrypting {len(files)} files')
+    print(f'\n[+] Encrypting {len(files)} files with RSA-1024')
 
     public_key_path = f'{KEYS_DIR}/{RSA_PUBLIC_KEY}'
     public_key = ffe.read_public_key(public_key=Path(public_key_path))
