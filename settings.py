@@ -1,5 +1,6 @@
 KEYS_DIR = "keys"
 RSA_PUBLIC_KEY = "rsa1024-public.pem"
 RSA_PRIVATE_KEY = "rsa1024-private.pem"
+AES_KEY = "aes256.key"
 TARGET_DIR = "demo-files"
 ENC_EXT = ".3nc"

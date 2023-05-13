@@ -6,6 +6,10 @@ from rsa_algorithm.decrypt import decryptRSA
 from rsa_algorithm.manage_key import generateRSAKeys
 import pathlib
 import time
+from aes_algorithm.encrypt import encryptAES
+from aes_algorithm.decrypt import decryptAES
+from aes_algorithm.manage_key import generateAESKey
+import secrets
 
 
 def getFiles(path):
@@ -73,7 +77,22 @@ if __name__ == '__main__':
             print("Invalid Choice")
 
     elif algorithm == 2:
-        pass
+        # generateAESKey(secrets.token_hex(32))
+        mode = setMode()
+        start_time = time.time()
+        if mode == 1:
+            encryptAES(normal_files)
+            passed_time = time.time() - start_time
+            print(
+                f"\n[+] Time passed: {passed_time} seconds in AES/Encryption mode")
+        elif mode == 2:
+            decryptAES(encrypted_files)
+            passed_time = time.time() - start_time
+            print(
+                f"\n[+] Time passed: {passed_time} seconds in AES/Decryption mode")
+        else:
+            print("Invalid Choice")
+
     elif algorithm == 3:
         pass
     else:
